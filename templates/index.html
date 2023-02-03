@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../material/style/style.css">
+    <link rel="stylesheet" href="../material/style/publicUtilities.css">
+    <title>台 北 一 日 遊</title>
+    <link rel="icon" href="../material/img/tw.ico" type="image/x-icon">
+</head>
+
+<body>
+    <div id="fristLogin"></div>
+    <nav></nav>
+
+    <!-- =======welcome的DIV========== -->
+    <div id="welcome">
+        <div id="leisurelyText">輕鬆享受台北一日悠閒</div>
+
+        <div id="tripIntroduction">探索每個角落，體驗城市的深度旅遊行程</div>
+
+        <form id="inquireTripNameForm">
+            <input id="inquireTripName" type="text" placeholder="輸入景點名稱查詢" name="keyword">
+
+            <button id="inquireTripNameBtn"></button>
+        </form>
+
+        <img id="welcomePic" src="../material/img/welcome.jpg" alt="">
+    </div>
+    <!-- ========建立全部圖片======== -->
+    <main id="viewPic">
+    </main>
+
+    <!-- =====台北一日遊Footer====== -->
+    <footer id="indexFooter">
+        <div id="footerText">COPYRIGHT © 2021 台北一日遊</div>
+    </footer>
+</body>
+<script src="../material/javaScript/indexJS.js"></script>
+<script src="../material/javaScript/publicUtilities.js"></script>
+<script>
+            function getScrollPosition()
+        {
+            var bodyTop = 0;
+            if (typeof window.pageYOffset != "undefined")
+            {
+                bodyTop = window.pageYOffset;
+
+            }
+            else if (typeof document.compatMode != "undefined" && document.compatMode != "BackCompat")
+            {
+                bodyTop = document.documentElement.scrollTop;
+            }
+            else if (typeof document.body != "undefined")
+            {
+                bodyTop = document.body.scrollTop;
+            }
+   
+            document.cookie = bodyTop; //將Y座標位置紀錄在cookie上
+        }
+
+        function moveScol()
+        {
+            var scrollo_y = document.cookie.split(";")[0];
+            if (scrollo_y != null) {
+                window.scrollTo(100, scrollo_y);
+            }
+        }
+</script>
+</html>

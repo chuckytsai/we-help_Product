@@ -1,0 +1,274 @@
+a {
+    text-decoration: none;
+    color: #448899;
+}
+
+input {
+    border: 1px solid #E8E8E8;
+    width: 200px;
+    height: 28px;
+    font-size: 16px;
+    color: gray;
+    border-radius: 5px;
+}
+
+/* 中間的hr */
+
+hr {
+    width: 62%;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    border: solid 1px #E8E8E8;
+}
+
+@media(max-width: 1830px) {
+    hr {
+        width: 1200px;
+    }
+}
+
+@media(max-width: 1400px) {
+    hr {
+        width: 65%;
+    }
+}
+
+/* 預購資料確認,聯絡資訊,付款資訊欄位*/
+
+.bookingInfo {
+    margin-left: 18.8%;
+    justify-content: center;
+    padding-left: 4%;
+    padding-right: 10px;
+}
+
+@media(max-width: 600px) {
+    .bookingInfo {
+        margin-left: 1%;
+        padding-left: -4%;
+    }
+}
+
+/* 預購資料確認,聯絡資訊,付款資訊標題格式 */
+
+.bookingInfoTitle {
+    font-size: 19px;
+    font-weight: 700;
+    color: gray;
+    width: 350px;
+    height: 16px;
+    line-height: 16px;
+    margin-bottom: 16px;
+}
+
+.bookingInfo h5 {
+    font-weight: 700;
+    font-size: 16px;
+    font-weight: bolder;
+    color: gray;
+    margin-top: 15px;
+}
+
+/* 景點預覽照片格式 */
+
+.viewImgs {
+    width: 266px;
+    height: 200px;
+    margin-right: 22px;
+}
+
+/* 預購資料確認,聯絡資訊,付款資訊內容格式 */
+
+.bookingContent {
+    margin-left: -2px;
+}
+
+/* 刪除行程按鈕 */
+
+.deleteStroke {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+@media(max-width: 1400px) {
+    .deleteStroke {
+        margin-right: 35%;
+        margin-top: 1%;
+        float: right;
+    }
+}
+
+@media(max-width: 900px) {
+    .deleteStroke {
+        margin-right: 10%;
+        margin-top: 15%;
+        float: right;
+    }
+}
+
+/* 使用者預約資訊文字格式 */
+
+.userBookingInfo {
+    height: 24px;
+    line-height: 13px;
+    color: grey;
+    display: flex;
+    margin-bottom: 17px;
+}
+
+.userBookingInfo h6 {
+    font-weight: 400;
+    font-size: 16px;
+    margin-right: 10px;
+    margin-top: 16px;
+}
+
+.userBookingInfo input{
+    padding-left: 5px;
+    padding-top:5px;
+    font-size: 16px;
+    color: #757575;
+
+
+}
+
+/* 使用者聯絡資訊框架格式 */
+
+.userInfo {
+    flex: none;
+    height: 24px;
+    margin-right: 35%;
+}
+
+@media(max-width: 1400px) {
+    .userInfo {
+        margin-right: 15%;
+    }
+}
+
+.userInfo h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #448899;
+    margin-bottom: 21px;
+}
+
+.userInfo h6 {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 13px;
+    color: grey;
+    margin-top: 17px;
+}
+
+/* 確認付款框架格式 */
+
+.checkPay {
+    float: right;
+    margin-right: 24.5%;
+    font-size: 24px;
+    font-style: bold;
+    font-weight: 700;
+    color: grey;
+}
+
+@media(max-width: 600px) {
+    .checkPay {
+        margin-right: 1%;
+    }
+}
+
+/* 確認付款按鈕 */
+
+.checkPayBtn {
+    margin-top: 20px;
+    margin-left: -30px;
+    font-weight: 400;
+    color: white;
+    font-size: 19px;
+    width: 183px;
+    height: 36px;
+    padding: 0 20px;
+    background-color: #448899;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* 台北一日遊Footer */
+
+#indexFooter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: auto auto;
+    width: 100%;
+    height: 104px;
+    background: #757575;
+    margin-top: 427px;
+}
+
+/* Footer內文字格式 */
+
+#footerText {
+    width: 100%;
+    height: 14px;
+    left: 0px;
+    top: 5px;
+    font-family: Noto Sans TC;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 13px;
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;
+    margin: 45px auto;
+    justify-content: center;
+}
+
+#bookingUserText {
+    display: flex;
+}
+
+@media(max-width: 1400px) {
+    #bookingUserText {
+        display: block;
+        margin-top: 20px;
+        margin-bottom: 120px;
+    }
+}
+
+/* 預訂行程清單 */
+
+.bookingLi {
+    background-color:gray;
+    color: white;
+    font-size: 16px;
+    height: 800px;
+    margin-left: -29.2%;
+    text-align: center;
+    padding-top: 30px;
+}
+
+
+.tripDate{
+    width: 100%;
+    text-align: left;
+    margin-left: 25%;
+    margin-bottom: 10px;
+}
+
+
+@media(max-width: 1150px) {
+    .tripDate {
+        margin-left: 2%;
+        margin-right: 0.5%;
+    }
+}
+
+
+.bookingList{
+    margin-top: 100px;
+}

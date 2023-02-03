@@ -1,0 +1,396 @@
+a {
+    text-decoration: none;
+    color: #448899;
+}
+
+/* 上面的兩欄位框架 */
+
+#monBanner {
+    margin: 0 auto;
+    margin-top: 37px;
+    width: 62%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media(max-width: 1830px) {
+    #monBanner {
+        width: 1400px;
+    }
+}
+
+@media(max-width: 1400px) {
+    #monBanner {
+        width: 50%;
+    }
+}
+
+@media(max-width: 899px) {
+    #monBanner {
+        width: 360px;
+    }
+}
+
+.bannerLeft {
+    display: block;
+}
+
+img {
+    height: 406px;
+    width: 540px;
+}
+
+@media(max-width: 899px) {
+    img {
+        width: 360px;
+        height: 240px;
+    }
+}
+
+/* 風景預覽圖 */
+
+#preview {
+    height: 406px;
+    width: 540px;
+}
+
+@media(max-width: 899px) {
+    #preview {
+        width: 360px;
+        height: 240px;
+    }
+}
+
+/* 其他圖片None */
+
+.previewPicNone {
+    display: none;
+}
+
+/* 圖片選擇點框架 */
+
+.dots {
+    display: flex;
+    justify-content: center;
+    margin-top: -30px;
+}
+
+/* 各個小白點 */
+
+.dot {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background-color: white;
+    border: 1px solid #E8E8E8;
+    float: left;
+    cursor: pointer;
+    margin-right: 3px;
+}
+
+/* 下一張 */
+
+#nextBtn {
+    height: 30px;
+    width: 30px;
+    float: right;
+    cursor: pointer;
+    position: absolute;
+    margin-left: 502px;
+    margin-top: 190px;
+    background-image: url(../img/arrow.png);
+    opacity: 0.7;
+}
+
+@media(max-width: 899px) {
+    #nextBtn {
+        margin-top: 110px;
+        margin-left: 320px;
+    }
+}
+
+/* 上一張 */
+
+#returnBtn {
+    height: 30px;
+    width: 30px;
+    margin-top: 190px;
+    position: absolute;
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    margin-left: 10px;
+    cursor: pointer;
+    background-image: url(../img/arrow.png);
+    opacity: 0.7;
+}
+
+@media(max-width: 899px) {
+    #returnBtn {
+        margin-top: 110px;
+    }
+}
+
+/* =購買與日期選擇資訊欄位 */
+
+.bannerRright {
+    margin-top: 20px;
+    margin-left: 30px;
+}
+
+@media(max-width: 1399px) {
+    .bannerRright {
+        margin-top: 20px;
+        margin-left: -3px;
+    }
+}
+
+@media(max-width: 899px) {
+    .bannerRright {
+        width: 360px;
+        padding-left: 10px;
+    }
+}
+
+/* 名稱 */
+
+.name {
+    font-weight: 700;
+    width: 255px;
+    height: 33px;
+    font-family: Noto Sans TC;
+    font-style: bold;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 24px;
+    color: #666666;
+    margin-bottom: 15px;
+}
+
+/* 旅遊類型與捷運 */
+
+.catAndMrt {
+    font-family: Noto Sans TC;
+    font-weight: 400;
+    height: 22px;
+    font-size: 16px;
+    line-height: 13.3px;
+    color: #666666;
+    font-style: Regular;
+}
+
+.catAndMrt h6 {
+    float: left;
+    margin-right: 5px;
+}
+
+/* 導覽行程預購 */
+
+.tripOrder {
+    padding-top: 5px;
+    padding-left: 15px;
+    width: 550px;
+    height: 302px;
+    margin-top: 10px;
+    background-color: #E8E8E8;
+    border-radius: 5px;
+}
+
+@media(max-width: 899px) {
+    .tripOrder {
+        width: 330px;
+    }
+}
+
+@media(max-width: 800px) {
+    .tripOrder {
+        width: 92%;
+        padding-left: -15px;
+    }
+}
+
+/* 選擇日期 */
+
+.selecrDate {
+    margin-left: 85px;
+    margin-top: -26px;
+    float: left;
+    width: 150px;
+    font-size: 16px;
+    font-weight: 400;
+    color: black;
+}
+
+/* 選擇時段 */
+
+.selecTime {
+    margin-left: 80px;
+    float: left;
+    display: flex;
+    margin-top: -25px;
+}
+
+/* 選擇時段的白點 */
+
+.selectPoint {
+    background-color: #FFFFFF;
+    width: 22px;
+    height: 22px;
+    float: left;
+    border-radius: 50%;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+/* 被選擇時段後白點改變 */
+
+.selectPointBlue {
+    background-color: #448899;
+    width: 12px;
+    height: 12px;
+    border: 5px solid white;
+    float: left;
+    border-radius: 50%;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+/* 景點購買資訊各式標題</h5> */
+
+.buyH5 {
+    width: 81px;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    padding: 0 4px;
+    font-size: 16px;
+}
+
+/* 預覽費用 */
+
+.tripPay {
+    margin-left: 85px;
+    margin-top: -29px;
+}
+
+/* 景點購買資訊內容 */
+
+.buyStory {
+    width: 100%;
+    font-family: Noto Sans TC;
+    font-size: 16px;
+    color: #666666;
+    padding: 0 3px;
+}
+
+/* 景點預購購買按鈕 */
+
+.buyButton {
+    color: #FFFFFF;
+    width: 154px;
+    height: 36px;
+    font-size: 19px;
+    font-weight: 400;
+    justify-content: center;
+    background-color: #448899;
+    margin-top: 25px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+/* 中間的hr */
+
+hr {
+    width: 62%;
+    margin: 0 auto;
+    margin-top: 37px;
+    margin-bottom: 50px;
+    border: solid 1px #E8E8E8;
+}
+
+@media(max-width: 1830px) {
+    hr {
+        width: 1200px;
+    }
+}
+
+@media(max-width: 1400px) {
+    hr {
+        width: 65%;
+    }
+}
+
+/* ======純文字資訊框架====== */
+
+.taipeiText {
+    margin: 0 auto;
+    margin-top: 37px;
+    width: 62%;
+}
+
+@media(max-width: 1830px) {
+    .taipeiText {
+        width: 1400px;
+    }
+}
+
+@media(max-width: 1400px) {
+    .taipeiText {
+        width: 50%;
+    }
+}
+
+@media(max-width: 800px) {
+    .taipeiText {
+        width: 84%;
+    }
+}
+
+/* 景點各式標題</h5> */
+
+.TripH5 {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+/* 景點內容 */
+
+.tripStory {
+    font-family: Noto Sans TC;
+    font-weight: 400;
+    font-size: 16px;
+    color: #666666;
+}
+
+/* 台北一日遊Footer */
+
+#indexFooter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: auto auto;
+    width: 100%;
+    height: 104px;
+    background: #757575;
+    margin-top: 335px;
+}
+
+/* Footer內文字格式 */
+
+#footerText {
+    width: 100%;
+    height: 14px;
+    left: 0px;
+    top: 5px;
+    font-family: Noto Sans TC;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 13px;
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;
+    margin: 45px auto;
+    justify-content: center;
+}

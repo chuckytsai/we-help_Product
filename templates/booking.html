@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/OnedayTrip/style/booking.css">
+    <link rel="stylesheet" href="/OnedayTrip/style/publicUtilities.css">
+    <title>台 北 一 日 遊</title>
+    <link rel="icon" href="/OnedayTrip/img/tw.ico" type="image/x-icon">
+    <script src="https://js.tappaysdk.com/tpdirect/v5.7.0"></script>
+</head>
+
+<body>
+    <div id="fristLogin"></div>
+    <nav></nav>
+
+    <br>
+    <div class="wantBooking" id="wantBooking">
+        <!-- 預購資料確認 -->
+        <div class="bookingInfo">
+
+            <h6 class="bookingInfoTitle" id="bookingUser"></h6>
+
+            <div class="bookingContent" id="bookingUserText">
+                <div>
+                    <img class="viewImgs" id="bookingImg">
+                </div>
+
+                <div class="userInfo">
+                    <h4 id="bookingName"></h4>
+                    <h6 id="bookingDate"></h6>
+                    <h6 id="bookingPrice"></h6>
+                    <h6 id="bookingAd"></h6>
+                </div>
+
+                <img id="deleteStroke" class="deleteStroke" src="/OnedayTrip/img/delete.png">
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <!-- 聯絡資訊 -->
+        <div class="bookingInfo">
+            <h6 class="bookingInfoTitle">您的聯絡資訊</h6>
+            <div class="bookingContent">
+                <div class="userBookingInfo">
+                    <h6>聯絡姓名：</h6>
+                    <input type="text" id="contactName">
+                </div>
+                <div class="userBookingInfo">
+                    <h6>聯絡信箱：</h6>
+                    <input type="text" id="contactEmail">
+                </div class="userBookingInfo">
+                <div class="userBookingInfo">
+                    <h6>手機號碼：</h6>
+                    <input type="text" id="contactNo">
+                </div>
+                <div class="userBookingInfo">
+                    <h5>請保持手機暢通，準時到達，瀏覽人員將用手機與您聯繫，請留下正確的聯絡方式</h5>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- 信用卡付款資訊 -->
+        <div class="bookingInfo">
+            <h6 class="bookingInfoTitle">信用卡付款資訊</h6>
+            <div class="bookingContent">
+                <div class="userBookingInfo">
+                    <h6 class="tpfield">卡片號碼：</h6>
+                    <input type="password" id="card-number" placeholder="**** **** **** ****">
+                </div>
+                <div class="userBookingInfo">
+                    <h6 class="tpfield">過期時間：</h6>
+                    <input type="text" id="card-expiration-date" placeholder="MM/YY">
+                </div>
+                <div class="userBookingInfo">
+                    <h6 class="tpfield">驗證密碼：</h6>
+                    <input type="text" id="card-ccv" placeholder="後3碼">
+                </div>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="checkPay">
+            <h6 id="bookingAddPrice"></h6>
+            <button class="checkPayBtn" id="checkPayBtn" onclick="onSubmit(event)">確認定款並付款</button>
+        </div>
+    </div>
+    </div>
+
+
+    <div class="bookingList" id="noBooking" style="display: none;">
+        <div class="bookingInfo">
+
+            <h6 class="bookingInfoTitle" id="hello"></h6>
+
+            <div class="userBookingInfo">目前沒有任何待預約行程</div>
+
+        </div>
+    </div>
+
+    <!-- =====台北一日遊Footer====== -->
+    <footer id="indexFooter">
+        <div id="footerText">COPYRIGHT © 2021 台北一日遊</div>
+    </footer>
+
+    <script src="/OnedayTrip/javaScript/booking.js"></script>
+    <script src="/OnedayTrip/javaScript/publicUtilities.js"></script>
+    <script>
+        TPDirect.setupSDK(20505, 'app_u8mdKZYVIV5qBoiqIkYOCsbrdxRreaTQNGGLQWFAs2Co7x3nh3RcInCws2kD', 'sandbox')
+        // Display ccv field
+        let fields = {
+            number: {
+                // css selector
+                element: '#card-number',
+                placeholder: '**** **** **** ****'
+            },
+            expirationDate: {
+                // DOM object
+                element: document.getElementById('card-expiration-date'),
+                placeholder: 'MM / YY'
+            },
+            ccv: {
+                element: '#card-ccv',
+                placeholder: '後三碼'
+            }
+        }
+
+        TPDirect.card.setup({
+            fields: fields,
+            styles: {
+                '.valid': {
+                    'color': 'green'
+                },
+                '.invalid': {
+                    'color': 'red'
+                },
+                '@media screen and (max-width: 400px)': {
+                    'input': {
+                        'color': 'orange'
+                    }
+                }
+            }
+        })
+
+
+        TPDirect.card.onUpdate(function (update) {
+            let submitButton = document.getElementById("checkPayBtn")
+            if (update.canGetPrime) {
+                submitButton.removeAttribute('disabled')
+            } else {
+                submitButton.setAttribute('disabled', true)
+            }
+        })
+
+        function onSubmit(event) {
+            event.preventDefault()
+            let name = document.getElementById("contactName").value
+            let email = document.getElementById("contactEmail").value
+            let phone = document.getElementById("contactNo").value
+
+            if (name === "" || email === "" || phone === "") {
+                document.getElementById("memberErrorBox").innerHTML = "請輸入聯絡資訊";
+                return
+            }
+
+            // Get prime
+            TPDirect.card.getPrime((result) => {
+                if (result.status !== 0) {
+                    document.getElementById("memberErrorBox").innerHTML = "請確認付款資訊是否正確";
+                } else {
+                    fetch("/api/orders", {
+                        method: "POST",
+                        headers: {
+                            "content-type": "application/json",
+                        },
+                        body: JSON.stringify({
+                            "prime": result.card.prime,
+                            "order": {
+                                "price": document.getElementById("bookingPrice").innerHTML,
+                                "trip": {
+                                    "attraction": {
+                                        "id": url_id,
+                                        "name": document.getElementById("bookingName").innerHTML,
+                                        "address": document.getElementById("bookingPrice").innerHTML,
+                                        "image": document.getElementById("bookingImg").innerHTML,
+                                    },
+                                    "date": document.getElementById("bookingDate").innerHTML,
+                                },
+                                "contact": {
+                                    "name": document.getElementById("contactName").value,
+                                    "email": document.getElementById("contactEmail").value,
+                                    "phone": document.getElementById("contactNo").value,
+                                }
+                            }
+                        })
+                    })
+                        .then(response => {
+                            return response.json()
+                        })
+                        .then(res => {
+                            console.log(res)
+                            transactionId = res.data.number
+                            url_thankyou = "/thankyou?number=" + transactionId
+                            window.location = url_thankyou
+                        })
+                }
+            })
+        };
+    </script>
+</body>
+
+</html>
